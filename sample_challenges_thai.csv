@@ -1,0 +1,6 @@
+﻿ลำดับ,ชื่อโจทย์,คำอธิบาย,หมวดหมู่,คะแนน,สถานะ
+1,เว็บแอปพลิเคชันพื้นฐาน,โจทย์นี้เกี่ยวกับช่องโหว่ SQL Injection ในเว็บไซต์,Web Security,150,visible
+2,การเข้ารหัสลับ,ถอดรหัสข้อความที่เข้ารหัสด้วย Caesar Cipher,Cryptography,100,visible
+3,การวิเคราะห์ไฟล์,หาข้อมูลที่ซ่อนอยู่ในไฟล์ภาพ PNG,Forensics,200,hidden
+4,Buffer Overflow,โจทย์เกี่ยวกับการโจมตี Buffer Overflow ในโปรแกรม C,Binary Exploitation,300,visible
+5,การโจมตีเครือข่าย,วิเคราะห์ packet capture file เพื่อหาข้อมูลสำคัญ,Network,250,visible

@@ -1,0 +1,33 @@
+--- a/CTFd/utils/exports/__init__.py
++++ b/CTFd/utils/exports/__init__.py
+@@ -1,6 +1,7 @@
+ import csv
+ import io
+ import zipfile
++import codecs
+ from flask import current_app
+ 
+ 
+@@ -45,7 +46,9 @@ def export_challenges_csv():
+     """
+     Export challenges to CSV format
+     """
+-    output = io.StringIO()
++    # Use UTF-8 with BOM for proper Thai character support
++    output = io.BytesIO()
++    output.write(codecs.BOM_UTF8)
++    text_wrapper = io.TextIOWrapper(output, encoding='utf-8', newline='')
+-    writer = csv.writer(output)
++    writer = csv.writer(text_wrapper)
+     
+     # Write header
+@@ -60,7 +63,10 @@ def export_challenges_csv():
+         challenge.state,
+         challenge.max_attempts,
+     ])
+     
+-    return output.getvalue()
++    text_wrapper.flush()
++    output.seek(0)
++    # Return bytes with UTF-8 BOM
++    return output.getvalue().decode('utf-8')
