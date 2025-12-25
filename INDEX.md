@@ -16,6 +16,7 @@
 | **[THAI_CSV_README.md](THAI_CSV_README.md)** | Quick start guide | You want to fix the issue quickly |
 | **[THAI_CSV_FIX.md](THAI_CSV_FIX.md)** | Complete Thai documentation | You want detailed Thai instructions |
 | **[BEFORE_AFTER.md](BEFORE_AFTER.md)** | Visual comparison | You want to see the problem/solution |
+| **[DEPLOYMENT.md](DEPLOYMENT.md)** | Production deployment guide | You're deploying to production |
 
 ### For Developers
 
@@ -91,6 +92,7 @@ thai-csv-fix/
 │   ├── THAI_CSV_README.md          ← Quick start
 │   ├── THAI_CSV_FIX.md             ← Full Thai docs
 │   ├── BEFORE_AFTER.md             ← Visual comparison
+│   ├── DEPLOYMENT.md               ← Production deployment
 │   └── INTEGRATION_EXAMPLE.md      ← Code examples
 │
 ├── 🔧 Solution Files (Use These)
