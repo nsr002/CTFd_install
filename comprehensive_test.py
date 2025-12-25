@@ -100,12 +100,14 @@ reader4 = ThaiCSVReader(exported)
 imported = list(reader4)
 
 # Compare
-all_match = all(orig == imp for orig, imp in zip(original_data, imported))
+all_match = (len(original_data) == len(imported) and 
+             all(orig == imp for orig, imp in zip(original_data, imported)))
 print(f"✅ Round-trip test: {'PASSED' if all_match else 'FAILED'}")
 if all_match:
     print("   All data preserved perfectly!")
 else:
-    print("   ⚠️  Data mismatch detected")
+    print(f"   ⚠️  Data mismatch detected")
+    print(f"   Original rows: {len(original_data)}, Imported rows: {len(imported)}")
 print()
 
 # Final summary

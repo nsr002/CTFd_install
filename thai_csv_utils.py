@@ -145,12 +145,18 @@ def import_challenges_from_csv(csv_data: Any) -> List[Dict[str, Any]]:
     # Read challenge data
     for row in reader:
         if len(row) >= 5:
+            # Parse value with proper error handling
+            try:
+                value = int(row[3]) if row[3] else 0
+            except (ValueError, IndexError):
+                value = 0
+            
             challenge = {
                 'name': row[0],
                 'description': row[1],
                 'category': row[2],
-                'value': int(row[3]) if row[3].isdigit() else 0,
-                'state': row[4] if len(row) > 4 else 'visible',
+                'value': value,
+                'state': row[4] if row[4] else 'visible',
             }
             challenges.append(challenge)
     
