@@ -2,6 +2,18 @@
 
 > **อัปเดตแก้ไข:** ปัญหา Permission (502 Gateway) และรองรับ Nginx Official Repo เรียบร้อย
 
+## 🇹🇭 แก้ปัญหาภาษาไทยใน CSV Import/Export
+
+**NEW!** แก้ไขปัญหาภาษาไทยแสดงผลเพี้ยนเมื่อ Export/Import โจทย์เป็น CSV
+
+👉 [คลิกที่นี่เพื่ออ่านวิธีแก้ไข (THAI_CSV_FIX.md)](THAI_CSV_FIX.md)
+
+- ✅ Export CSV ภาษาไทยเปิดใน Excel ได้ถูกต้อง
+- ✅ Import CSV ภาษาไทยไม่เพี้ยน
+- ✅ รองรับ UTF-8 with BOM
+
+---
+
 ### ✅ STEP 1: เตรียมเครื่อง & Nginx (Official + Fix Permission)
 
 จุดที่เพิ่มมาคือบรรทัดสุดท้าย (`usermod`) ครับ สำคัญมาก\!

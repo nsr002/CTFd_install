@@ -1,0 +1,30 @@
+--- a/CTFd/utils/imports/__init__.py
++++ b/CTFd/utils/imports/__init__.py
+@@ -1,5 +1,6 @@
+ import csv
+ import io
++import codecs
+ from flask import current_app
+ 
+ 
+@@ -30,8 +31,18 @@ def import_challenges_csv(csv_data):
+     """
+     Import challenges from CSV format
+     """
++    # Detect and handle UTF-8 BOM for Thai character support
++    if isinstance(csv_data, bytes):
++        # Remove BOM if present
++        if csv_data.startswith(codecs.BOM_UTF8):
++            csv_data = csv_data[len(codecs.BOM_UTF8):]
++        csv_data = csv_data.decode('utf-8')
++    elif csv_data.startswith('\ufeff'):
++        # Remove BOM character if present in string
++        csv_data = csv_data[1:]
++    
+     stream = io.StringIO(csv_data)
+-    reader = csv.reader(stream)
++    # Use csv.reader with proper encoding handling
++    reader = csv.reader(stream, dialect='excel')
+     
+     # Skip header
+     next(reader)
